@@ -1,5 +1,4 @@
 var enForm = document.querySelector("#encryptForm");
-// var iv = CryptoJS.enc.Utf8.parse("101112131415161718191a1b1c1d1e1f");
 
 enForm.addEventListener("submit", (e) => {
   e.preventDefault();
