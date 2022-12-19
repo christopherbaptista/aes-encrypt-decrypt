@@ -37,6 +37,10 @@
               <textarea name="key" type="text" class="input"></textarea>
             </div>
             <div class="group">
+              <label class="label">Initialization vector (IV)</label>
+              <textarea name="iv" id="iv" type="text" class="input"></textarea>
+            </div>
+            <div class="group">
               <label for="pass" class="label">Text to encrypt</label>
               <textarea
                 name="message"
@@ -46,6 +50,10 @@
               ></textarea>
             </div>
             <div class="group">
+              <input type="submit" class="button" value="Encrypt" />
+            </div>
+            <div class="hr"></div>
+            <div class="group">
               <label for="pass" class="label">Result</label>
               <textarea
                 name="message"
@@ -53,10 +61,6 @@
                 type="text"
                 class="input"
               ></textarea>
-            </div>
-            <div class="hr"></div>
-            <div class="group">
-              <input type="submit" class="button" value="Encrypt" />
             </div>
           </div>
         </form>
@@ -70,6 +74,10 @@
               <textarea name="key" type="text" class="input"></textarea>
             </div>
             <div class="group">
+              <label class="label">Initialization vector (IV)</label>
+              <textarea name="iv" id="iv" type="text" class="input"></textarea>
+            </div>
+            <div class="group">
               <label for="pass" class="label">Encrypted text</label>
               <textarea
                 name="encrypted"
@@ -79,12 +87,12 @@
               ></textarea>
             </div>
             <div class="group">
-              <label for="pass" class="label">Result</label>
-              <textarea id="de-message" type="text" class="input"></textarea>
+              <input type="submit" class="button" value="Decrypt" />
             </div>
             <div class="hr"></div>
             <div class="group">
-              <input type="submit" class="button" value="Decrypt" />
+              <label for="pass" class="label">Result</label>
+              <textarea id="de-message" type="text" class="input"></textarea>
             </div>
           </div>
         </form>

@@ -1,5 +1,5 @@
 var enForm = document.querySelector("#encryptForm");
-var iv = CryptoJS.enc.Utf8.parse("101112131415161718191a1b1c1d1e1f");
+// var iv = CryptoJS.enc.Utf8.parse("101112131415161718191a1b1c1d1e1f");
 
 enForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -8,7 +8,9 @@ enForm.addEventListener("submit", (e) => {
   let keys = formData.get("key");
   let key = CryptoJS.enc.Utf8.parse(keys);
   let message = formData.get("message");
-  let msg = encryptMe(message, key);
+  let ivs = formData.get("iv");
+  let iv = CryptoJS.enc.Utf8.parse(ivs);
+  let msg = encryptMe(message, key, iv);
   document.querySelector("#en-message").value = msg;
 });
 
@@ -20,11 +22,13 @@ deForm.addEventListener("submit", (e) => {
   let keys = formData.get("key");
   let key = CryptoJS.enc.Utf8.parse(keys);
   let encrypted = formData.get("encrypted");
-  let msg = decryptMe(encrypted, key);
+  let ivs = formData.get("iv");
+  let iv = CryptoJS.enc.Utf8.parse(ivs);
+  let msg = decryptMe(encrypted, key, iv);
   document.querySelector("#de-message").value = msg;
 });
 
-function encryptMe(mes, key) {
+function encryptMe(mes, key, iv) {
   return CryptoJS.AES.encrypt(mes, key, {
     iv: iv,
     mode: CryptoJS.mode.CTR,
@@ -32,7 +36,7 @@ function encryptMe(mes, key) {
   });
 }
 
-function decryptMe(mes, key) {
+function decryptMe(mes, key, iv) {
   var bytes = CryptoJS.AES.decrypt(mes, key, {
     iv: iv,
     mode: CryptoJS.mode.CTR,
